@@ -1,0 +1,9 @@
+<h1>Browse Posts</h1>
+<%= will_paginate @txts %>
+<hr/>
+<% @txts.each do |txt| %>
+	<p><strong><%=link_to "#{BASE_URL}/#{txt[:token]}", "#{BASE_URL}/#{txt[:token]}"%>:</strong><br/><%=txt[:txt]%></p>
+	<hr/>
+<% end %>
+<%= will_paginate @txts %>
+

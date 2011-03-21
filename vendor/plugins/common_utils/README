@@ -1,0 +1,16 @@
+CommonUtils
+===========
+
+Common Utilities
+
+Setup
+=======
+Crypto requires these constants: CRYPTO_PASSWORD, CRYPTO_SALT
+
+
+Example
+=======
+
+
+
+Copyright (c) 2010 [name of plugin creator], released under the MIT license

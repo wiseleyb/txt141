@@ -1,0 +1,9 @@
+Description:
+		Adds "extend MigrationHelper"
+
+Example:
+    rails generate migration some_migration_name
+
+    This will create:
+        db/migrations/some_migration_name.rb
+

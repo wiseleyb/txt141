@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>txt141</title>
+  <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag "blueprint/screen" %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-124263-25']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+  <link rel="shortcut icon" href="/images/t.ico" >
+</head>
+<body>
+
+<div class="container">
+
+	<div id="content span-20">
+
+		<p class="right">
+			<% if logged_in? %>
+				<%= session[:login] %>: <%=link_to "Logout", "/twitter/logout"%>
+			<% end %>
+		</p>
+
+		<br/>
+		
+		<div id="title-bar">
+			<h1><%= link_to image_tag("txt141logo.png"), root_path, :title => "txt141: say more"%></h1>
+			<h3>Sometimes 140 characters isn't enough.</h3>
+		</div>
+
+    <% ["notice", "alert"].each do |fn|; klass = eval(fn) %>
+      <% if klass %>
+        <p class="<%=fn%>"><%= klass %></p><hr/>
+      <% end %>
+    <% end %>
+
+		<%= yield %>
+		
+		<hr/>
+		
+		<p class="right">
+			<%=link_to "API", api_index_index_path %> | 
+			<%=link_to "About", about_index_index_path %> |
+			<%=link_to "Contact Us", "mailto:txt141@gmail.com" %> | 
+			<%=TxtRedis.saved %> messages saved.  <%=TxtRedis.served %> messages served.
+		</p>
+
+	</div>
+
+
+</div>
+
+<script type="text/javascript">
+<!--
+Event.fire(document, "my:dom:loaded");
+<%= yield :page_action -%>
+-->
+</script>
+
+</body>
+</html>

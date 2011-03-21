@@ -1,0 +1,13 @@
+
+<p>
+	<% if @login_key %> 
+		<a href="/twitter/logout">logout</a> 
+	<% else %> 
+		<a href="/twitter/login">login</a>
+	<% end %>
+</p>
+
+<form>
+	<%= text_area_tag :txt %>
+	<%= submit_tag %>
+</form>

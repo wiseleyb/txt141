@@ -1,0 +1,58 @@
+<% if REDIS.exists(session[:session_id]) == true %>
+	<h4><i>What users will see when clicking your url</i></h4>
+<% end %>
+<p><%= link_to @txturl, @txturl, :target => "_new#{params[:id]}" %></p>
+
+<p class="buttonz"><%=raw @txt%></p>
+
+<p><%=link_to "Create your own", "/", :class => "buttonz blue" %></p>
+
+
+<% unless @twitter_txt.blank? %>
+	<br/><br/><br/>
+	<h3>Data created</h3>
+	
+	<div>
+		<div class="span-4">
+			<%=link_to image_tag("twitterbirdsm.png", {:height => 100}), "http://jenn-duong.com/blog/?p=192"%> 
+		</div>
+		<div class="last">
+			<p>
+				<strong>URL:</strong> <%= link_to @txturl, @txturl %><br/>  
+				<%=text_field_tag :url, @txturl, :class => "url-result", :onclick => "selectAll(this);" %>
+			</p>
+			<div class="span-10">
+			<%= form_tag('/index/update') do -%>
+				<%=hidden_field_tag :url, @txturl %>
+				<p>
+					<strong>Twitter:</strong> (<span id="field_count" name="field_count"><%=@twitter_txt.size %></span> characters)<br/>
+					<%=text_area_tag :txt, @twitter_txt, :class => "twitter span-10", :onclick => "selectAll(this);", :onkeydown => "counter(this);", :onblur => "counter(this);" %>
+				</p>
+				<p class="right">
+					<button type="submit" id="submit_tweet" name="submit_tweet" value="twitter" class="buttonz large blue">
+						Tweet This
+					</button>
+				</p>
+				<p><small>* Tweet This will tweet whatever is in the text box.  You shouldn't change the url.  That's not supported.</small></p>
+			</div>
+			<% end %>
+		</div>
+		<br class="clear"/>
+	</div>
+<% end %>
+
+<script>
+	function selectAll(id) {
+		$(id).focus();
+		$(id).select();
+	}
+	function counter(id) {
+		v = $(id).value.length;
+		$('field_count').innerHTML = $(id).value.length;
+		if (v > 140) {
+			$('field_count').addClassName('red-text');
+		} else {
+			$('field_count').removeClassName('red-text');
+		}
+	}
+</script>

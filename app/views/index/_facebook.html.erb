@@ -1,0 +1,12 @@
+<hr/>
+<div>
+	<div class="span-4">
+		<%=image_tag("facebook.png", {:height => 100})%>
+	</div>
+	<div class="last">
+		<p><strong>Facebook:</strong> (it's <%=@facebook_txt.size %> characters)<br/>
+			<%=text_area_tag :txt, @facebook_txt, :class => "facebook" %>
+		</p>
+	</div>
+	<br class="clear"/>
+</div>

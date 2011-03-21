@@ -1,0 +1,19 @@
+
+textarea.input {height: 16em; width: 70em;}
+textarea.facebook {height: 14em;}
+textarea.twitter {height: 6em;}
+
+input.url-result {width:18em;}
+
+#notice {
+  color: green;
+}
+
+#error {
+  color: red;
+}
+
+.red-text {
+	color: red;
+}
+

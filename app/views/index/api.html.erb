@@ -1,0 +1,81 @@
+<h1>API</h1>
+
+<p>The API is very simple.  You can create shortened text and urls and you can read those urls.</p>
+
+<h2>Creating content</h2>
+
+<p>You can do a GET or a POST to http://txt141.com/index/create.xml or http://txt141.com/index/create.json.  You need to include the parameter "txt" - which contains the text you wish to shorten.</p>
+
+<h3>XML Example</h3>
+
+<p><em>http://txt141.com/index/create.xml?txt=Aenean%20facilisis%20nulla%20vitae%20urna%20tincidunt%20congue%20sed%20ut%20dui.%20Morbi%20malesuada%20nulla%20nec%20purus%20convallis%20consequat.%20Vivamus%20id%20mollis%20quam.%20Morbi%20ac%20commodo%20nulla.%20In%20condimentum%20orci%20id%20nisl.</em> would generate a response like:</p>
+
+<pre>
+	&lt;?xml version="1.0" encoding="UTF-8"?&gt; 
+	&lt;txt141&gt; 
+	  &lt;token&gt;jD&lt;/token&gt; 
+	  &lt;url&gt;http://txt141.com/jD&lt;/url&gt; 
+	  &lt;raw&gt;Aenean facilisis nulla vitae urna tincidunt congue sed ut dui. Morbi malesuada nulla nec 
+		purus convallis consequat. Vivamus id mollis quam. Morbi ac commodo nulla. In condimentum orci id nisl.&lt;/raw&gt; 
+	  &lt;txt&gt;Aenean facilisis nulla vitae urna tincidunt congue sed ut dui. Morbi malesuada nulla nec 
+		purus convallis consequ... http://txt141.com/jD&lt;/txt&gt; 
+	&lt;/txt141&gt;
+</pre>
+
+<p>The <em>token</em> and <em>url</em> will change each time you POST or GET this.  The <em>raw</em> tag has the original text.  The <em>txt</em> tag has the 140 character snippet that you could paste into Twitter.</p>
+
+<h3>JSON Example</h3>
+
+<p><em>http://txt141.com/index/create.json?txt=Aenean%20facilisis%20nulla%20vitae%20urna%20tincidunt%20congue%20sed%20ut%20dui.%20Morbi%20malesuada%20nulla%20nec%20purus%20convallis%20consequat.%20Vivamus%20id%20mollis%20quam.%20Morbi%20ac%20commodo%20nulla.%20In%20condimentum%20orci%20id%20nisl.</em> would generate a response like:</p>
+
+<pre>
+	{
+	"token":"jM",
+	"url":"http://txt141.com/jM",
+	"raw":"Aenean facilisis nulla vitae urna tincidunt congue sed ut dui. Morbi malesuada nulla nec purus 
+	convallis consequat. Vivamus id mollis quam. Morbi ac commodo nulla. In condimentum orci id nisl."
+	"txt":"Aenean facilisis nulla vitae urna tincidunt congue sed ut dui. Morbi malesuada nulla nec purus 
+	convallis consequ... http://txt141.com/jM",
+	}
+</pre>
+
+<p>The <em>token</em> and <em>url</em> will change each time you POST or GET this.  The <em>raw</em> tag has the original text.  The <em>txt</em> tag has the 140 character snippet that you could paste into Twitter.</p>
+
+<h2>Reading content</h2>
+
+<p>This is as simple as doing a HTTP GET to a <em>token</em>.  For the tokens generated above here are some examples:</p>
+
+<h3>XML Example</h3>
+
+<p><em>http://txt141.com/jD.xml</em> would return:</p>
+
+<pre>
+	&lt;?xml version="1.0" encoding="UTF-8"?&gt; 
+	&lt;txt141&gt; 
+	  &lt;token&gt;jD&lt;/token&gt; 
+	  &lt;url&gt;http://txt141.com/jD&lt;/url&gt; 
+	  &lt;raw&gt;Aenean facilisis nulla vitae urna tincidunt congue sed ut dui. Morbi malesuada nulla nec 
+		purus convallis consequat. Vivamus id mollis quam. Morbi ac commodo nulla. In condimentum orci id nisl.&lt;/raw&gt; 
+	  &lt;txt&gt;Aenean facilisis nulla vitae urna tincidunt congue sed ut dui. Morbi malesuada nulla nec 
+		purus convallis consequ... http://txt141.com/jD&lt;/txt&gt; 
+	&lt;/txt141&gt;
+</pre>
+
+<h3>JSON Example</h3>
+
+<p><em>http://txt141.com/jM.xml</em> would return:</p>
+
+<pre>
+	{
+	"token":"jM",
+	"url":"http://txt141.com/jM",
+	"raw":"Aenean facilisis nulla vitae urna tincidunt congue sed ut dui. Morbi malesuada nulla nec purus 
+	convallis consequat. Vivamus id mollis quam. Morbi ac commodo nulla. In condimentum orci id nisl."
+	"txt":"Aenean facilisis nulla vitae urna tincidunt congue sed ut dui. Morbi malesuada nulla nec purus 
+	convallis consequ... http://txt141.com/jM",
+	}
+</pre>
+
+<h2>Questions?  Comments?</h2>
+
+<p>Feel free to contact us anytime at <%=link_to "txt141@gmail.com", "mailto:txt141@gmail.com"%></p>

@@ -1,0 +1,10 @@
+txt141 is a simple text shortener that I was hoping to integrate with apps like TweetDeck.  Unfortunately once I finished it TweetDeck came out with their own version of this app.  So, I'm open sourcing it for anyone interested.
+
+Basis:
+* Rails 3
+* Moonshine for deployment http://blog.railsmachine.com/articles/2010/02/17/smooth-devoperations-deploying-rails-3-with-moonshine/
+* Redis for data storage (there is no sql db)
+* Twitter OAuth integration
+
+Feel free to ask any question: wiseleyb@gmail.com
+

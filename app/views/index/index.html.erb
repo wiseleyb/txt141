@@ -1,0 +1,17 @@
+<%= form_tag "/index/create" do -%>
+	<div class="span-19">
+		<p>
+			<%=text_area_tag :txt, "", :class => "input span-19" %>
+		</p>
+		<p class="right">
+			<button type="submit" id="submit_shorten" name="submit_shorten" value="shorten" class="buttonz large blue">
+				Shorten This
+			</button>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<button type="submit" id="submit_tweet" name="submit_tweet" value="twitter" class="buttonz large blue">
+				Tweet This
+			</button>
+		</p>
+	</div>
+<% end %>
+	

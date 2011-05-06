@@ -1,6 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
+# gem 'capistrano'
+# gem 'shadow_puppet'
 gem 'SystemTimer'
 gem 'twitter_oauth'
 gem "will_paginate", "~> 3.0.pre2"

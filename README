@@ -2,9 +2,19 @@ txt141 is a simple text shortener that I was hoping to integrate with apps like 
 
 Basis:
 * Rails 3
-* Moonshine for deployment http://blog.railsmachine.com/articles/2010/02/17/smooth-devoperations-deploying-rails-3-with-moonshine/
 * Redis for data storage (there is no sql db)
 * Twitter OAuth integration
 
 Feel free to ask any question: wiseleyb@gmail.com
 
+This is currently running on heroku if you want to check it out:  http://txt141.heroku.com
+
+
+Used to deploy with:
+* Moonshine for deployment http://blog.railsmachine.com/articles/2010/02/17/smooth-devoperations-deploying-rails-3-with-moonshine/
+
+To re-enable 
+* copy pre-heroku/manifests to app/manifests
+* copy per-herokuy/moonshine to vendor/plugins/moonshine
+* uncomment capistrano and shadowpuppet in the Gemfile
+* add something in config/initializers/constants.rb to handle redis in production

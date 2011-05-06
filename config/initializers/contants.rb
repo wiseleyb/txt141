@@ -1,14 +1,18 @@
 case Rails.env
 when "development"
-  REDIS = Redis.new(:port => 6390)
+  ENV["REDISTOGO_URL"] = 'redis://127.0.0.1:6390' 
   BASE_URL = "http://localhost:3000"
 when "test"
-  REDIS = Redis.new(:port => 6391)
+  ENV["REDISTOGO_URL"] = 'redis://127.0.0.1:6391' 
   BASE_URL = "http://localhost:3000"
 when "production"
-  REDIS = Redis.new(:port => 9077)
   BASE_URL = "http://txt141.heroku.com"
 end
+
+
+uri = URI.parse(ENV["REDISTOGO_URL"])
+REDIS = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+
 # 
 
 TWITTER_KEY = 'KxYG2vJrMiROA0bemkv4bA'

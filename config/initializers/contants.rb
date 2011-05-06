@@ -6,8 +6,8 @@ when "test"
   REDIS = Redis.new(:port => 6391)
   BASE_URL = "http://localhost:3000"
 when "production"
-  REDIS = Redis.new(:port => 6392)
-  BASE_URL = "http://txt141.com"
+  REDIS = Redis.new(:port => 9077)
+  BASE_URL = "http://txt141.heroku.com"
 end
 # 
 
